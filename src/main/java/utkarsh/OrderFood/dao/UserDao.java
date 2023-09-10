@@ -5,6 +5,7 @@ import lombok.Setter;
 import utkarsh.OrderFood.exception.UserNotFoundException;
 import utkarsh.OrderFood.models.User;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -37,5 +38,16 @@ public class UserDao {
         if(!userMap.containsKey(phone))
             throw new UserNotFoundException();
         return userMap.get(phone);
+    }
+
+    public Boolean remove(String phone) {
+        if(!userMap.containsKey(phone))
+            throw new UserNotFoundException();
+        userMap.remove(phone);
+        return false;
+    }
+
+    public void clearAll() {
+        userMap = new ConcurrentHashMap<>();
     }
 }
