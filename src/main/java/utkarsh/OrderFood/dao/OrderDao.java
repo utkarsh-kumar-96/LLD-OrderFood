@@ -1,4 +1,4 @@
 package utkarsh.OrderFood.dao;
 
-public class OrderDao {
+public interface OrderDao {
 }
